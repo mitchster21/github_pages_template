@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -168,10 +168,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">eda.html</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">data-acquisition.html</span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -240,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="simulating-game-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="simulating-game-outcomes">Simulating Game Outcomes</h2>
 <p>To demonstrate how logistic regression and random forest handle different data patterns, we simulate a small sports dataset. Outcomes depend on <strong>nonlinear effects</strong> and <strong>interactions</strong>, which are easier for random forests to capture than logistic regression.</p>
-<div id="dd528c0f" class="cell" data-execution_count="1">
+<div id="523c0817" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -283,37 +310,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>0</td>
-<td>-1.191126</td>
-<td>-0.676473</td>
+<td>1</td>
+<td>0.853197</td>
+<td>1.119395</td>
 <td>0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
 <td>1</td>
-<td>-0.804072</td>
-<td>-0.292492</td>
-<td>0</td>
+<td>1.074322</td>
+<td>-0.087479</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
 <td>1</td>
-<td>0.493412</td>
-<td>0.282714</td>
+<td>-0.614455</td>
+<td>0.111486</td>
 <td>0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>0</td>
-<td>0.810341</td>
-<td>-1.113464</td>
 <td>1</td>
+<td>-0.022522</td>
+<td>-2.586458</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>0</td>
-<td>0.828497</td>
-<td>-0.055495</td>
+<td>1</td>
+<td>-0.000453</td>
+<td>-0.545446</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -352,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="compare-results">Compare Results</h2>
 <p>We train both logistic regression (LR) and random forest (RF) on the simulated dataset. Logistic regression assumes a linear relationship, while random forest can capture <strong>nonlinear effects and interactions</strong>.</p>
 <p><img src="results/images/accuracy_comparison.png" class="img-fluid"></p>
-<div id="099bee50" class="cell" data-execution_count="2">
+<div id="e568538c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
