@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: .
 
 website:
   title: "Your Name - Data Science Portfolio"
@@ -9,21 +9,15 @@ website:
   navbar:
     background: primary
     left:
-      - text: "Home"
-        href: index.md
+      - text: "Random Forest vs Logistic Regression"
+        href: Blog.html
       - text: "About Me"
-        href: about.md
+        href: about.html
       - text: "Projects"
         menu:
           - text: "All Projects"
-            href: projects/index.md
-          - text: "---"
-          - text: "Exploratory Data Analysis"
-            href: projects/eda.qmd
-          - text: "Data Acquisition"
-            href: projects/data-acquisition.qmd
-          - text: "Final Project"
-            href: projects/final-project.qmd
+            href: index.html
+          
     right:
       - icon: github
         href: https://github.com/your-username
@@ -33,10 +27,9 @@ website:
   sidebar:
     - title: "Projects"
       contents:
-        - projects/index.md
-        - projects/eda.qmd
-        - projects/data-acquisition.qmd
-        - projects/final-project.qmd
+        - index.html
+        - eda.html
+        - data-acquisition.html
 
 format:
   html:
